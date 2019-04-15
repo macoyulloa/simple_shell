@@ -9,3 +9,4 @@ void exit_built_in(char **arguments)
 	free(arguments);
 	exit(1);
 }
+
