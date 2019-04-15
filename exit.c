@@ -6,15 +6,17 @@
 */
 int exit_built_in(char **arguments)
 {
-       int status = 2;
+	int status = 2;
 
-       if (!arguments[1])
-       {
-               free(arguments);
-               _exit(0);
-       }
-       else
-              free(arguments);
-              exit(status);
-       return (1);
+	if (!arguments[1])
+	{
+		free(arguments);
+		_exit(0);
+	}
+	else
+	{
+		free(arguments);
+		exit(status);
+	}
+	return (1);
 }
