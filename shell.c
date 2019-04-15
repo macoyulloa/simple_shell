@@ -6,7 +6,6 @@
  */
 int main(void)
 {
-	char *salto_linea = "\n";
 	char *args, **arrtok, *env, **path;
 	size_t len = 0;
 
@@ -29,6 +28,5 @@ int main(void)
 		}
 	}
 	free(args);
-	write(1, salto_linea, _strlen(salto_linea));
 	return (0);
 }
