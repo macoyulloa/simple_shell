@@ -20,7 +20,7 @@ int _strncmp(char *s1, char *s2, size_t n);
 int _strlen(char *s);
 char built_ins(char **arguments);
 void ctrlc(int signalnum);
-void exit_built_in(char **arguments);
+int exit_built_in(char **arguments);
 char *_getenviro(char *var);
 void interactive(char **arr, char **path);
 void simple_shell(void);
