@@ -6,16 +6,9 @@
  */
 int main(void)
 { char *salto_linea = "\n";
-	char *args, **arrtok, *env, **path, *fname = "plankton.txt";
+	char *args, **arrtok, *env, **path;
 	size_t len = 0;
-	FILE *fptr = NULL;
-
-	if((fptr = fopen(fname,"r")) == NULL)
-	{ fprintf(stderr,"error opening %s\n",fname);
-
-		return 1; }
-	start_screen(fptr);
-	fclose(fptr);
+	
 	signal(SIGINT, ctrlc);
 	args = NULL;
 	if (isatty(0))
@@ -46,11 +39,3 @@ int main(void)
 	free(args);
 	write(1, salto_linea, _strlen(salto_linea));
 	return (0); }
-
-void start_screen(FILE *file_ptr)
-
-{
-  char read_str[128];
-	while(fgets(read_str,sizeof(read_str),file_ptr) != NULL)
-	printf("%s",read_str);
-}
