@@ -16,7 +16,8 @@ int exit_built_in(char **arguments)
 	else
 	{
 		free(arguments);
-		exit(status);
+		_exit(status);
 	}
+	_exit(status);
 	return (1);
 }
