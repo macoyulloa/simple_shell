@@ -6,7 +6,7 @@
 */
 int exit_built_in(char **arguments)
 {
-       int status;
+       int status = 2;
 
        if (!arguments[1])
        {
