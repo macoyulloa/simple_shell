@@ -6,25 +6,31 @@
  */
 char **gettoken(char *string)
 {
-        int i = 0;
-        char **arguments;
+	int i = 0;
+	char **arguments;
 	int size;
 
 	size = _strlen(string);
-        arguments = malloc(sizeof(char *) * size);
-        if (!arguments)
-        {
-                free(arguments);
-                exit(1);
-        }
-        arguments[i] = _strtok(string, "\n ");
-        while (arguments[i])
-        {
+	arguments = malloc(sizeof(char *) * size);
+	if (!arguments)
+	{
+		free(arguments);
+		exit(1);
+	}
+	arguments[i] = _strtok(string, "\n ");
+	while (arguments[i])
+	{
 		i++;
-                arguments[i] = _strtok(NULL, "\n ");
-        }
+		arguments[i] = _strtok(NULL, "\n ");
+	}
 	return (arguments);
 }
+/**
+ * _strtok - to get the tokens according to the string: #, etc.
+ * @str: all string.
+ * @del: delimiter.
+ * Return: the new_str according to the entered string.
+ */
 char *_strtok(char *str, const char *del)
 {
 	static char *s;
@@ -41,7 +47,6 @@ char *_strtok(char *str, const char *del)
 				s[i] = '\0';
 		}
 	}
-
 	if (s == NULL || *s == '\0' || *s == '#')
 		return (NULL);
 	new_str = s;
@@ -51,6 +56,12 @@ char *_strtok(char *str, const char *del)
 	s = s + _strlen(s) + space;
 	return (new_str);
 }
+/**
+ * is_del - if it is a delimiter.
+ * @c: char to be verified as a delimiter.
+ * @del: delimiter.
+ * Return: 1 if it is a delimiter, otherwise return 0.
+ */
 int is_del(char c, const char *del)
 {
 	for (; del != NULL && *del != '\0'; del++)
