@@ -22,7 +22,7 @@ char **_getpath(char *s, char **args)
 	arr = malloc(sizeof(char *) * 1024);
 	if (!arr)
 	{
-		freed(arr);
+		free(arr);
 		_exit(1);
 	}
 	str = malloc(sizeof(char) * 1024);
