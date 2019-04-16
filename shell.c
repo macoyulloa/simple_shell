@@ -28,9 +28,6 @@ int main(void)
 			}
 		}
 	}
-	free(env);
-        freed(arrtok);
-        freed(path);
 	free(args);
 	return (0);
 }
