@@ -18,5 +18,5 @@ int exit_built_in(char **arguments)
 		free(arguments);
 		_exit(status);
 	}
-	return(status);
+	return (status);
 }
