@@ -11,7 +11,6 @@ int main(void)
 
 	signal(SIGINT, ctrlc);
 	args = NULL;
-	free(args);
 	while (getline(&args, &len, stdin) != -1)
 	{
 		if (args[0] != '\n')
