@@ -14,7 +14,7 @@ char **gettoken(char *string)
 	arguments = malloc(sizeof(char *) * size);
 	if (!arguments)
 	{
-		free(arguments);
+		freed(arguments);
 		exit(1);
 	}
 	arguments[i] = _strtok(string, "\n ");
