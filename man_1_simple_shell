@@ -1,0 +1,193 @@
+.\"manpage for shell
+.\" Contact diego&male@gmail.com to correct errors or typos
+.TH shell 1 "15th April 2019" "version 1.1.1" "shell manpage"
+.SH NAME
+.PP
+shell - command language interpreter that shall execute commands read from a command line string, the standard input, or a specified file.
+.SH SYNOPSIS
+.PP
+.B sh [-acefhikmnprstuvx] [arg] ...
+.PP 
+.B jsh [-acefhikmnprstuvx] [arg] ...
+.PP
+.SH DESCRIPTION
+.PP
+The shell utility is a command language interpreter that shall execute commands read from a command line string, the standard input, or a specified file.
+.PP
+ Plakton Sh is a command programming language that executes commands read from a terminal or a file. See the invocation section for the meaning of arguments to the shell.
+.PP
+.SH SIGNALS
+.PP 
+.B The CRTLC CRTLD are the signals that presents:
+.PP
+          CRTLC staying in the execution of the program.
+.PP
+          CRTLD quits the execution of the prgram.
+.BR
+.SH COMMANDS
+.PP
+The shell interprets the words it reads according to a language.
+.PP
+he following commands could be managed in these program when it is running, as well as, Plankton could execute the commmands in a interactive and a non interactive (we do not need to call the search Path function, already got it) way:
+.PP
+```
+.PP
+echo[arg...]	Each arg is printed to standard output; afterwards, a newline is printed.
+.PP
+pwd		Prints the name of the current directory.
+.PP
+touch		[Filename] creates a new file.
+.PP
+mkdir		[Directory_name] Creates a new directory.
+.PP
+rm		[Filename] or [Directoryname] Deletes the directory or a file.
+.PP
+mv		[Filename] [Directory] Changes a file for one directory to another directory.
+.PP
+```
+.PP
+.SH BUILT -INS COMMANDS
+.PP
+```
+.PP
+exit            Causes the shell to exit with the exit.
+.PP
+env             Prints the enviroment.
+.PP
+cd[arg]         Change the current directory to arg. The shell parameter $HOME is the default arg. If no directory arg is found and the $CDPATH parameter contains a list of directories separated by colons, each of these directories is used as a prefix to arg in the given order, and the current directory is set to the first one that is found.
+.PP
+```
+.PP
+.BR
+.SH SEARCH & EXECUTION
+.PP
+There are three types of commands: shell functions, built-in commands, and normal programs. The command is searched for (by name) in that order. The three types of commands are all executed in a different way.
+.PP
+.SH PATH SEARCH
+.PP
+When locating a command, the shell first looks to see if it has a shell function by that name. Then it looks for a built-in command by that name.  If a built-in command is not found, one of two things happen:
+.PP
+1. Command names containing a slash are simply executed without performing any searches.
+.PP
+2. The shell searches each entry in the PATH variable in turn for the command. The value of the PATH variable should be a series of entries separated by colons. Each entry consists of a directory name. The current directory may be indicated implicitly by an empty directory name, or explicitly by a single period.
+.br
+.PP
+.SH EXAMPLE
+.br
+.PP 
+.B cd command: 
+.PP 
+The 'cd' commnad let us change the current directory.
+.PP
+```
+.PP
+Plankton cd [directory_name]
+.PP
+Plankton cd dir_1/dir_2/dir_3
+.PP
+```
+.PP
+.B pwd command:
+.PP
+The 'pwd' command let us know the completly current library direction.
+.PP
+To print it use syntax:
+.PP
+```
+.PP
+Plankton pwd
+.PP
+```
+.PP
+.B echo command:
+.PP
+The 'echo' command prints a string directly in the console.
+.PP
+To print a string use syntax:
+.PP
+```
+.PP
+Plankton echo "Hey, I am a Plankton shell"
+.PP
+```
+.PP
+.B rm command:
+.PP
+The 'rm' command removes files from the system without confirmation.
+.PP
+To remove a file use syntax:
+.PP
+```
+.PP
+Plankton rm [filename]
+.PP
+```
+.PP
+.SH SEE ALSO
+.PP
+FUNCTION FILE               DESCRIPTION
+.PP
+shell.c                     This is the main of the function - Plankton shell.
+.PP
+shell.h                     This is the file conteins the prototypes functions files #include "shell.h" and the other libraries.
+.PP
+built_ins                   It is call if the user digits a built in command: exit, env or cd.
+.PP
+cd.c                        Executes if the user type a cd command, directory change.
+.PP
+ctrlc.c                     It is calls is the user digits CTRLC, so it do not let finished excecution.
+.PP
+exit.c                      This function exits the program.
+.PP
+getenv.c                    This function gets the enviroment of the commands.
+.PP
+interactive.c               To create a song process in order to execute the command, taking the array of tokens and the searched path.
+.PP
+non-interactive.c           To create a song process to execute it in a non interactive way, taking the array of tokens, we already got the path.
+.PP
+path.c                      To get the all path and save it in a string without a delimitador
+.PP
+printenv.c                  To print in the prompt the enviorement of the variable.
+.PP
+tokens.c                    To get the tokens of the arguments and keep it in a grill.
+_atoi                       Converts a array to an integer.
+.PP
+_memset.c                   Copy the character b to the fist n characters of n. _putchar.c                  Writes the character c to stdout
+.PP
+_strcat.c                   Appends (anexa) the src string to the dest string
+.PP
+_strcmp.c                   Compares only the bytes of s1 & s2.
+.PP
+_strcpy.c                   Copies the src, including '\0', to the buffer pointed to dest.
+.PP
+_strdup.c                   Duplicate the string str using the head memory, wirth malloc.
+.PP
+_strlen.c                   This function counts the leng of a string.
+.PP
+_strncmp.c                  Compares only the first n bytes of s1 & s2.
+```
+.PP
+.br those are the functions used to execute the shell program.
+.PP
+.BR shell(1)
+.PP
+.SH BUGS
+.br
+.PP
+Report shell bugs to diego&male@gmail.com
+.PP
+GitHub page:
+.PP
+* **Diego Castellanos** - [Diegokernel] (https://github.com/Diegokernel)
+.PP
+* **Maria Alejandra Coy** - [macoyulloa] (https://github.com/macoyulloa)
+.PP
+.SH AUTHORS
+.br
+.PP
+Written by Diego Castellanos & Maria Alejandra Coy
+.PP
+(https://github.com/macoyulloa/prueba_shell/blob/master/shelltest/AUTHORS) or details on our code of conduct, and the process for submitting pull requests to us.
+.PP
+.SH COPYRIGHT 2019
+.PP
