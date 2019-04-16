@@ -32,5 +32,4 @@ int cd_built_in(char **array);
 char *_strtok(char *str, const char *del);
 int is_del(char c, const char *del);
 void start_screen(FILE *file_ptr);
-void freed(char **ptr);
 #endif
