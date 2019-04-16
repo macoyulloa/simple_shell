@@ -22,7 +22,7 @@ char **_getpath(char *s, char **args)
 	arr = malloc(sizeof(char *) * 1024);
 	if (!arr)
 	{
-		free(arr);
+		freed(arr);
 		_exit(1);
 	}
 	str = malloc(sizeof(char) * 1024);
@@ -41,6 +41,7 @@ char **_getpath(char *s, char **args)
 		arr[i] = _strdup(str);
 		_memset(str, 0, _strlen(str));
 	}
+	free(arr[i]);
 	free(tok);
 	return (arr);
 }
